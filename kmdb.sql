@@ -132,19 +132,54 @@ CREATE TABLE movies (
     title TEXT,
     year_released INTEGER,
     mpaa_rating TEXT,
-    studio_id INTEGER,
+    studio_name TEXT,
 );
 CREATE TABLE movie_actor (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    movie_id INTEGER,
-    actor_id INTEGER,
+    movie_title TEXT,
+    actor_name TEXT,
     character_name TEXT,
 );
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
-
+INSERT INTO studios (name) 
+VALUES ('Warner Bros.');
+INSERT INTO movies (title, year_released, mpaa_rating, studio_name) 
+VALUES 
+    ('Batman Begins', 2005, 'PG-13', 'Warner Bros.'),
+    ('The Dark Knight', 2008, 'PG-13', 'Warner Bros.'),
+    ('The Dark Knight Rises', 2012, 'PG-13', 'Warner Bros.');
+INSERT INTO actors (name) 
+VALUES 
+    ('Christian Bale'),
+    ('Michael Caine'),
+    ('Liam Neeson'),
+    ('Katie Holmes'),
+    ('Gary Oldman'),
+    ('Heath Ledger'),
+    ('Aaron Eckhart'),
+    ('Maggie Gyllenhaal'),
+    ('Tom Hardy'),
+    ('Joseph Gordon-Levitt'),
+    ('Anne Hathaway');
+INSERT INTO movie_actor (movie_title, actor_name, character_name) VALUES 
+    ('Batman Begins', 'Christian Bale', 'Bruce Wayne'),
+    ('Batman Begins', 'Michael Caine', 'Alfred'),
+    ('Batman Begins', 'Liam Neeson', 'Ra''s Al Ghul'),
+    ('Batman Begins', 'Katie Holmes', 'Rachel Dawes'),
+    ('Batman Begins', 'Gary Oldman', 'Commissioner Gordon'),
+    ('The Dark Knight', 'Christian Bale', 'Bruce Wayne'),
+    ('The Dark Knight', 'Heath Ledger', 'Joker'),
+    ('The Dark Knight', 'Aaron Eckhart', 'Harvey Dent'),
+    ('The Dark Knight', 'Michael Caine', 'Alfred'),
+    ('The Dark Knight', 'Maggie Gyllenhaal', 'Rachel Dawes'),
+    ('The Dark Knight Rises', 'Christian Bale', 'Bruce Wayne'),
+    ('The Dark Knight Rises', 'Gary Oldman', 'Commissioner Gordon'),
+    ('The Dark Knight Rises', 'Tom Hardy', 'Bane'),
+    ('The Dark Knight Rises', 'Joseph Gordon-Levitt', 'John Blake'),
+    ('The Dark Knight Rises', 'Anne Hathaway', 'Selina Kyle');
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -153,6 +188,7 @@ CREATE TABLE movie_actor (
 
 -- The SQL statement for the movies output
 -- TODO!
+SELECT title, year_released, mpaa_rating, studio_name FROM movies;
 
 -- Prints a header for the cast output
 .print ""
@@ -163,3 +199,6 @@ CREATE TABLE movie_actor (
 
 -- The SQL statement for the cast output
 -- TODO!
+SELECT movie_title, actor_name, character_name 
+FROM movie_actor
+ORDER BY movie_title, actor_name;
