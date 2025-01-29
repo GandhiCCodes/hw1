@@ -122,24 +122,31 @@ DROP TABLE IF EXISTS studios;
 CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT
-);
+)
+;
+
 CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT
-);
+)
+;
+
 CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
     year_released INTEGER,
     mpaa_rating TEXT,
-    studio_name TEXT,
-);
+    studio_name TEXT
+)
+;
+
 CREATE TABLE movie_actor (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     movie_title TEXT,
     actor_name TEXT,
-    character_name TEXT,
-);
+    character_name TEXT
+)
+;
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
@@ -150,7 +157,8 @@ INSERT INTO movies (title, year_released, mpaa_rating, studio_name)
 VALUES 
     ('Batman Begins', 2005, 'PG-13', 'Warner Bros.'),
     ('The Dark Knight', 2008, 'PG-13', 'Warner Bros.'),
-    ('The Dark Knight Rises', 2012, 'PG-13', 'Warner Bros.');
+    ('The Dark Knight Rises', 2012, 'PG-13', 'Warner Bros.')
+    ;
 INSERT INTO actors (name) 
 VALUES 
     ('Christian Bale'),
@@ -163,7 +171,8 @@ VALUES
     ('Maggie Gyllenhaal'),
     ('Tom Hardy'),
     ('Joseph Gordon-Levitt'),
-    ('Anne Hathaway');
+    ('Anne Hathaway')
+    ;
 INSERT INTO movie_actor (movie_title, actor_name, character_name) VALUES 
     ('Batman Begins', 'Christian Bale', 'Bruce Wayne'),
     ('Batman Begins', 'Michael Caine', 'Alfred'),
@@ -179,7 +188,8 @@ INSERT INTO movie_actor (movie_title, actor_name, character_name) VALUES
     ('The Dark Knight Rises', 'Gary Oldman', 'Commissioner Gordon'),
     ('The Dark Knight Rises', 'Tom Hardy', 'Bane'),
     ('The Dark Knight Rises', 'Joseph Gordon-Levitt', 'John Blake'),
-    ('The Dark Knight Rises', 'Anne Hathaway', 'Selina Kyle');
+    ('The Dark Knight Rises', 'Anne Hathaway', 'Selina Kyle')
+    ;
 
 -- Prints a header for the movies output
 .print "Movies"
